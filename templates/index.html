@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .well{
+      border: 2px;
+      solid: #ccc;
+      width: 300px;
+      height:100px;
+      overflow-y: scroll;
+    }
+    </style>
+    <div class
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flask Plotlyjs Example</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Historical Spending of the Nations of the world between 1960 and 2018</h1>
+        <p>Click the below checklist to select nations you want to compare, then hit submit.</p>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2">
+          <div class = "well">
+            <input type="checkbox" class="messageCheckbox"  value="1" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="2" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="3" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="4" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="5" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="6" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="7" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="8" /> This is checkbox <br />
+          </div>
+
+         <button type="button", onclick="getValue();return false;">Submit</button> 
+         <script>
+          function getValue(){
+            var mychecks = document.getElementsByClassName('messageCheckbox')
+            for (i = 0; i<8; i++){
+              if(mychecks[i].checked === true){
+                alert(mychecks[i].value)
+              }
+            }
+             
+          }
+         
+         </script>
+      </div>
+    </div>
+
+      <div class="col-md-5">
+        <div id="pie"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="bubble"></div>
+    </div>
+  </div>
+
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/bonus.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
