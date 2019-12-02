@@ -2,19 +2,6 @@ function buildMetadata(sample) {
 
   // @TODO: Complete the following function that builds the metadata panel
   // Use `d3.json` to fetch the metadata for a sample
-   d3.json(`/metadata/${sample}`).then((data) => {
-
-    // Use d3 to select the panel to fill with metadata
-    var metadataPanel = d3.select("#sample-metadata");
-
-    //clear existing metadata
-    metadataPanel.html("")
-    //Enter the metadata into the panel
-    Object.entries(data).forEach(([key, value]) => {
-      metadataPanel.append("h6").text(`${key}: ${value}`);
-    })
-  })
-}
 
 function buildCharts(sample) {
 

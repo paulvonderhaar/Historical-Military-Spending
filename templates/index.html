@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 <html lang="en">
 
 <head>
@@ -33,51 +36,64 @@
     <div class="row">
       <div class="col-md-2">
           <div class = "well">
-            <input type="checkbox" class="messageCheckbox"  value="1" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="2" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="3" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="4" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="5" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="6" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="7" /> This is checkbox <br />
-            <input type="checkbox" class="messageCheckbox"  value="8" /> This is checkbox <br />
+            <input type="checkbox" class="messageCheckbox"  value="United Kingdom" /> United Kingdom <br />
+            <input type="checkbox" class="messageCheckbox"  value="Switzerland" /> Switzerland <br />
+            <input type="checkbox" class="messageCheckbox"  value="United States" /> United States <br />
+            <input type="checkbox" class="messageCheckbox"  value="Venezuela" /> Venezuela <br />
+            <input type="checkbox" class="messageCheckbox"  value="Malawi" /> Malawi <br />
+            <input type="checkbox" class="messageCheckbox"  value="Iran" /> Iran <br />
+            <input type="checkbox" class="messageCheckbox"  value="Iraq" /> Iraq <br />
+            <input type="checkbox" class="messageCheckbox"  value="Germany" /> Germany <br />
           </div>
 
          <button type="button", onclick="getValue();return false;">Submit</button> 
          <script>
+          var data = [];
+          var myx=[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018]
+
           function getValue(){
             var mychecks = document.getElementsByClassName('messageCheckbox')
+            var checklist = []
             for (i = 0; i<8; i++){
               if(mychecks[i].checked === true){
-                alert(mychecks[i].value)
+                checklist.push(mychecks[i].value)
               }
             }
-             
+
+
+
+            for(var i = 0; i<checklist.length; i++){
+                var  jsondata=[]; 
+                d3.json(`/country/${checklist[i]}`, function(datafromServer){
+                  jsondata=datafromServer;
+                  console.log(jsondata['Name'])
+                var myy = [jsondata[1960],jsondata[1961],jsondata[1962],jsondata[1963],jsondata[1964],jsondata[1965],jsondata[1966],jsondata[1967],jsondata[1968],jsondata[1969],jsondata[1970],jsondata[1971],jsondata[1972],jsondata[1973],jsondata[1974],jsondata[1975],jsondata[1976],jsondata[1977],jsondata[1978],jsondata[1979],jsondata[1980],jsondata[1981],jsondata[1982],jsondata[1983],jsondata[1984],jsondata[1985],jsondata[1986],jsondata[1987],jsondata[1988],jsondata[1989],jsondata[1990],jsondata[1991],jsondata[1992],jsondata[1993],jsondata[1994],jsondata[1995],jsondata[1996],jsondata[1997],jsondata[1998],jsondata[1999],jsondata[2000],jsondata[2001],jsondata[2002],jsondata[2003],jsondata[2004],jsondata[2005],jsondata[2006],jsondata[2007],jsondata[2008],jsondata[2009],jsondata[2010],jsondata[2011],jsondata[2012],jsondata[2013],jsondata[2014],jsondata[2015],jsondata[2016],jsondata[2017],jsondata[2018]]
+                Trace={x:myx,
+                       y:myy,
+                      type: 'scatter',
+                      name:jsondata['Name']}
+                data.push(Trace)
+                })
+              
+            }
+
+
+
+
+          Plotly.newPlot('pie', data);
+          data=[]
+
+
+
           }
          
          </script>
       </div>
     </div>
 
-      <div class="col-md-5">
-        <div id="pie"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div id="bubble"></div>
-    </div>
-  </div>
+    <div id="pie"></div>
 
   <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="{{ url_for('static', filename='js/bonus.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
 </body>
 

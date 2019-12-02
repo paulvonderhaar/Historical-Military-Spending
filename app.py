@@ -1,13 +1,12 @@
 import os
-
+import inspect
 import pandas as pd
 import numpy as np
-
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-
+from sqlalchemy import inspect
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
@@ -26,10 +25,9 @@ Base = automap_base()
 # reflect the tables
 Base.prepare(db.engine, reflect=True)
 
-# Save references to each table
-Samples_Metadata = Base.classes.sample_metadata
-Samples = Base.classes.samples
+#country = db.Table("countries",db.metadata,autoload=True,autoload_with=db.engine)
 
+country = Base.classes.MyCountry
 
 @app.route("/")
 def index():
@@ -37,68 +35,78 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/names")
-def names():
-    """Return a list of sample names."""
-
-    # Use Pandas to perform the sql query
-    stmt = db.session.query(Samples).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
-
-    # Return a list of the column names (sample names)
-    return jsonify(list(df.columns)[2:])
 
 
-@app.route("/metadata/<sample>")
-def sample_metadata(sample):
-    """Return the MetaData for a given sample."""
-    sel = [
-        Samples_Metadata.sample,
-        Samples_Metadata.ETHNICITY,
-        Samples_Metadata.GENDER,
-        Samples_Metadata.AGE,
-        Samples_Metadata.LOCATION,
-        Samples_Metadata.BBTYPE,
-        Samples_Metadata.WFREQ,
-    ]
+@app.route("/country/<name>")
 
-    results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
+def countries(name):
+    stmt = db.session.query(country).filter(country.Name==name).all()
+    inst = inspect(country)
+    MyDict={}
+    for result in stmt:
+        MyDict['Name'] = result.Name
+        MyDict['1960'] = result.one
+        MyDict['1961'] = result.two
+        MyDict['1962'] = result.three
+        MyDict['1963'] = result.four
+        MyDict['1964'] = result.five
+        MyDict['1965'] = result.six
+        MyDict['1966'] = result.seven
+        MyDict['1967'] = result.eight
+        MyDict['1968'] = result.nine
+        MyDict['1969'] = result.ten
+        MyDict['1970'] = result.eleven
+        MyDict['1971'] = result.twelve
+        MyDict['1972'] = result.thirteen
+        MyDict['1973'] = result.fourteen
+        MyDict['1974'] = result.fifteen
+        MyDict['1975'] = result.sixteen
+        MyDict['1976'] = result.seventeen
+        MyDict['1977'] = result.eighteen
+        MyDict['1978'] = result.nineteen
+        MyDict['1979'] = result.twenty
+        MyDict['1980'] = result.twentyone
+        MyDict['1981'] = result.twentytwo
+        MyDict['1982'] = result.twentythree
+        MyDict['1983'] = result.twentyfour
+        MyDict['1984'] = result.twentyfive
+        MyDict['1985'] = result.twentysix
+        MyDict['1986'] = result.twentyseven
+        MyDict['1987'] = result.twentyeight
+        MyDict['1988'] = result.twentynine
+        MyDict['1989'] = result.thirty
+        MyDict['1990'] = result.thirtyone
+        MyDict['1991'] = result.thirtytwo
+        MyDict['1992'] = result.thirtythree
+        MyDict['1993'] = result.thirtyfour
+        MyDict['1994'] = result.thirtyfive
+        MyDict['1995'] = result.thirtysix
+        MyDict['1996'] = result.thirtyseven
+        MyDict['1997'] = result.thirtyeight
+        MyDict['1998'] = result.thirtynine
+        MyDict['1999'] = result.fourty
+        MyDict['2000'] = result.fourtyone
+        MyDict['2001'] = result.fourtytwo
+        MyDict['2002'] = result.fourtythree
+        MyDict['2003'] = result.fourtyfour
+        MyDict['2004'] = result.fourtyfive
+        MyDict['2005'] = result.fourtysix
+        MyDict['2006'] = result.fourtyseven
+        MyDict['2007'] = result.fourtyeight
+        MyDict['2008'] = result.fourtynine
+        MyDict['2009'] = result.fifty
+        MyDict['2010'] = result.fiftyone
+        MyDict['2011'] = result.fiftytwo
+        MyDict['2012'] = result.fiftythree
+        MyDict['2013'] = result.fiftyfour
+        MyDict['2014'] = result.fiftyfive
+        MyDict['2015'] = result.fiftysix
+        MyDict['2016'] = result.fiftyseven
+        MyDict['2017'] = result.fiftyeight
+        MyDict['2018'] = result.fiftynine
 
-    # Create a dictionary entry for each row of metadata information
-    sample_metadata = {}
-    for result in results:
-        sample_metadata["sample"] = result[0]
-        sample_metadata["ETHNICITY"] = result[1]
-        sample_metadata["GENDER"] = result[2]
-        sample_metadata["AGE"] = result[3]
-        sample_metadata["LOCATION"] = result[4]
-        sample_metadata["BBTYPE"] = result[5]
-        sample_metadata["WFREQ"] = result[6]
+    return jsonify(MyDict)
 
-    print(sample_metadata)
-    return jsonify(sample_metadata)
-
-
-@app.route("/samples/<sample>")
-def samples(sample):
-    """Return `otu_ids`, `otu_labels`,and `sample_values`."""
-    stmt = db.session.query(Samples).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
-
-    # Filter the data based on the sample number and
-    # only keep rows with values above 1
-    sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
-
-    # Sort by sample
-    sample_data.sort_values(by=sample, ascending=False, inplace=True)
-
-    # Format the data to send as json
-    data = {
-        "otu_ids": sample_data.otu_id.values.tolist(),
-        "sample_values": sample_data[sample].values.tolist(),
-        "otu_labels": sample_data.otu_label.tolist(),
-    }
-    return jsonify(data)
 
 
 if __name__ == "__main__":
