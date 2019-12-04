@@ -18,7 +18,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Flask Plotlyjs Example</title>
+  <title>Graph of Historical military spending</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Historical Spending of the Nations of the world between 1960 and 2018</h1>
-        <p>Click the below checklist to select nations you want to compare, then hit submit.</p>
+        <p>Click the below checklist to select nations you want to compare, then hit submit. To clear the selection box, hit clear</p>
       </div>
     </div>
 
@@ -36,14 +36,213 @@
     <div class="row">
       <div class="col-md-2">
           <div class = "well">
-            <input type="checkbox" class="messageCheckbox"  value="United Kingdom" /> United Kingdom <br />
-            <input type="checkbox" class="messageCheckbox"  value="Switzerland" /> Switzerland <br />
-            <input type="checkbox" class="messageCheckbox"  value="United States" /> United States <br />
-            <input type="checkbox" class="messageCheckbox"  value="Venezuela" /> Venezuela <br />
-            <input type="checkbox" class="messageCheckbox"  value="Malawi" /> Malawi <br />
+
+            <input type="checkbox" class="messageCheckbox"  value="Afghanistan" /> Afghanistan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Albania" /> Albania <br />
+            <input type="checkbox" class="messageCheckbox"  value="Angola" /> Angola <br />
+            <input type="checkbox" class="messageCheckbox"  value="Andorra" /> Andorra <br />
+            <input type="checkbox" class="messageCheckbox"  value="Angola" /> Angola <br />
+            <input type="checkbox" class="messageCheckbox"  value="Antigua and Barbuda" /> Antigua and Barbuda <br />
+            <input type="checkbox" class="messageCheckbox"  value="Argentina" /> Argentina <br />
+            <input type="checkbox" class="messageCheckbox"  value="Armenia" /> Armenia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Aruba" /> Aruba <br />
+            <input type="checkbox" class="messageCheckbox"  value="Australia" /> Australia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Austria" /> Austria <br />
+            <input type="checkbox" class="messageCheckbox"  value="Azerbaijan" /> Azerbaijan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bahamas" /> Bahamas <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bahrain" /> Bahrain <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bangladesh" /> Bangladesh <br />
+            <input type="checkbox" class="messageCheckbox"  value="Barbados" /> Barbados <br />  
+            <input type="checkbox" class="messageCheckbox"  value="Belarus" /> Belarus <br />
+            <input type="checkbox" class="messageCheckbox"  value="Belgium" /> Belgium <br />
+            <input type="checkbox" class="messageCheckbox"  value="Belize" /> Belize <br />
+            <input type="checkbox" class="messageCheckbox"  value="Benin" /> Benin <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bermuda" /> Bermuda <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bhutan" /> Bhutan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bolivia" /> Bolivia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bosnia and Herzegovina" /> Bosnia and Herzegovina <br />            
+            <input type="checkbox" class="messageCheckbox"  value="Botswana" /> Botswana <br />
+            <input type="checkbox" class="messageCheckbox"  value="Brazil" /> Brazil <br />
+            <input type="checkbox" class="messageCheckbox"  value="Brunei Darussalam" /> Brunei Darussalam <br />
+            <input type="checkbox" class="messageCheckbox"  value="Bulgaria" /> Bulgaria <br />
+            <input type="checkbox" class="messageCheckbox"  value="Burkina Faso" /> Burkina Faso <br />
+            <input type="checkbox" class="messageCheckbox"  value="Burundi" /> Burundi <br />
+            <input type="checkbox" class="messageCheckbox"  value="Cabo Verde" /> Cabo Verde <br />
+            <input type="checkbox" class="messageCheckbox"  value="Cambodia" /> Cambodia <br />            
+            <input type="checkbox" class="messageCheckbox"  value="Cameroon" /> Cameroon <br />
+            <input type="checkbox" class="messageCheckbox"  value="Canada" /> Canada <br />
+            <input type="checkbox" class="messageCheckbox"  value="Central African Republic" /> Central African Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Chad" /> Chad <br />
+            <input type="checkbox" class="messageCheckbox"  value="Chile." /> Chile <br />
+            <input type="checkbox" class="messageCheckbox"  value="China" /> China <br />
+            <input type="checkbox" class="messageCheckbox"  value="Colombia" /> Colombia <br />            
+            <input type="checkbox" class="messageCheckbox"  value="Comoros" /> Comoros <br />
+            <input type="checkbox" class="messageCheckbox"  value="Congo, Dem. Rep." /> Congo, Dem. Rep. <br />
+            <input type="checkbox" class="messageCheckbox"  value="Congo, Rep." /> Congo, Rep. <br />
+            <input type="checkbox" class="messageCheckbox"  value="Costa Rica" /> Costa Rica <br />
+            <input type="checkbox" class="messageCheckbox"  value="Cote d'Ivoire" /> Cote d'Ivoire <br />
+            <input type="checkbox" class="messageCheckbox"  value="Croatia" /> Croatia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Czech Republic" /> Czech Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Cuba" /> Cuba <br />            
+            <input type="checkbox" class="messageCheckbox"  value="Curacao" /> Curacao <br />
+            <input type="checkbox" class="messageCheckbox"  value="Cyprus" /> Cyprus <br />
+            <input type="checkbox" class="messageCheckbox"  value="Czech Republic" /> Czech Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Denmark" /> Denmark <br />
+            <input type="checkbox" class="messageCheckbox"  value="Djibouti" /> Djibouti <br />
+            <input type="checkbox" class="messageCheckbox"  value="Dominica" /> Dominica <br />
+            <input type="checkbox" class="messageCheckbox"  value="Dominican Republic" /> Dominican Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Egypt" /> Egypt <br />            
+            <input type="checkbox" class="messageCheckbox"  value="El Salvador" /> El Salvador <br />
+            <input type="checkbox" class="messageCheckbox"  value="Equatorial Guinea" /> Equatorial Guinea <br />
+            <input type="checkbox" class="messageCheckbox"  value="Eritrea" /> Eritrea <br />
+            <input type="checkbox" class="messageCheckbox"  value="Estonia" /> Estonia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Eswatini" /> Eswatini <br />
+            <input type="checkbox" class="messageCheckbox"  value="Ethiopia" /> Ethiopia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Fiji" /> Fiji <br />
+            <input type="checkbox" class="messageCheckbox"  value="Finland" /> Finland <br />            
+            <input type="checkbox" class="messageCheckbox"  value="France" /> France <br />
+            <input type="checkbox" class="messageCheckbox"  value="Gabon" /> Gabon <br />
+            <input type="checkbox" class="messageCheckbox"  value="Gambia" /> Gambia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Georgia" /> Georgia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Germany" /> Germany <br />
+            <input type="checkbox" class="messageCheckbox"  value="Ghana" /> Ghana <br />
+            <input type="checkbox" class="messageCheckbox"  value="Gibraltar" /> Gibraltar <br />
+            <input type="checkbox" class="messageCheckbox"  value="Greece" /> Greece <br />            
+            <input type="checkbox" class="messageCheckbox"  value="Greece" /> Greece <br />
+            <input type="checkbox" class="messageCheckbox"  value="Greenland" /> Greenland <br />
+            <input type="checkbox" class="messageCheckbox"  value="Grenada" /> Grenada <br />
+            <input type="checkbox" class="messageCheckbox"  value="Guam" /> Guam <br />
+            <input type="checkbox" class="messageCheckbox"  value="Guatemala" /> Guatemala <br />
+            <input type="checkbox" class="messageCheckbox"  value="Guinea" /> Guinea <br />
+            <input type="checkbox" class="messageCheckbox"  value="Guinea-Bissau" /> Guinea-Bissau <br />
+            <input type="checkbox" class="messageCheckbox"  value="Guyana" /> Guyana <br />
+            <input type="checkbox" class="messageCheckbox"  value="Haiti" /> Haiti <br />
+            <input type="checkbox" class="messageCheckbox"  value="Honduras" /> Honduras <br />
+            <input type="checkbox" class="messageCheckbox"  value="Hungary" /> Hungary <br />
+            <input type="checkbox" class="messageCheckbox"  value="Iceland" /> Iceland <br />
+            <input type="checkbox" class="messageCheckbox"  value="India" /> India <br />
+            <input type="checkbox" class="messageCheckbox"  value="Indonesia" /> Indonesia <br />
             <input type="checkbox" class="messageCheckbox"  value="Iran" /> Iran <br />
             <input type="checkbox" class="messageCheckbox"  value="Iraq" /> Iraq <br />
-            <input type="checkbox" class="messageCheckbox"  value="Germany" /> Germany <br />
+            <input type="checkbox" class="messageCheckbox"  value="Ireland" /> Ireland <br />
+            <input type="checkbox" class="messageCheckbox"  value="Israel" /> Israel <br />
+            <input type="checkbox" class="messageCheckbox"  value="Italy" /> Italy <br />
+            <input type="checkbox" class="messageCheckbox"  value="Jamaica" /> Jamaica <br />
+            <input type="checkbox" class="messageCheckbox"  value="Japan" /> Japan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Jordan" /> Jordan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kazakhstan" /> Kazakhstan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kenya" /> Kenya <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kiribati" /> Kiribati <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kosovo" /> Kosovo <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kuwait" /> Kuwait <br />
+            <input type="checkbox" class="messageCheckbox"  value="Kyrgyz Republic" /> Kyrgyz Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Lao PDR" /> Lao PDR <br />
+            <input type="checkbox" class="messageCheckbox"  value="Latvia" /> Latvia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Lebanon" /> Lebanon <br />
+            <input type="checkbox" class="messageCheckbox"  value="Lesotho" /> Lesotho <br />
+            <input type="checkbox" class="messageCheckbox"  value="Liberia" /> Liberia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Libya" /> Libya <br />
+            <input type="checkbox" class="messageCheckbox"  value="Liechtenstein" /> Liechtenstein <br />
+            <input type="checkbox" class="messageCheckbox"  value="Lithuania" /> Lithuania <br />
+            <input type="checkbox" class="messageCheckbox"  value="Luxembourg" /> Luxembourg <br />
+            <input type="checkbox" class="messageCheckbox"  value="Madagascar" /> Madagascar <br />
+            <input type="checkbox" class="messageCheckbox"  value="Malawi" /> Malawi <br />
+            <input type="checkbox" class="messageCheckbox"  value="Malaysia" /> Malaysia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Maldives" /> Maldives <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mali" /> Mali <br />
+            <input type="checkbox" class="messageCheckbox"  value="Malta" /> Malta <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mauritania" /> Mauritania <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mauritius" /> Mauritius <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mexico" /> Mexico <br />
+            <input type="checkbox" class="messageCheckbox"  value="Micronesia" /> Micronesia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Moldova" /> Moldova <br />
+            <input type="checkbox" class="messageCheckbox"  value="Monaco" /> Monaco <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mongolia" /> Mongolia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Montenegro" /> Montenegro <br />
+            <input type="checkbox" class="messageCheckbox"  value="Morocco" /> Morocco <br />
+            <input type="checkbox" class="messageCheckbox"  value="Mozambique" /> Mozambique <br />
+            <input type="checkbox" class="messageCheckbox"  value="Myanmar" /> Myanmar <br />
+            <input type="checkbox" class="messageCheckbox"  value="Namibia" /> Namibia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Nauru" /> Nauru <br />
+            <input type="checkbox" class="messageCheckbox"  value="Nepal" /> Nepal <br />
+            <input type="checkbox" class="messageCheckbox"  value="Netherlands" /> Netherlands <br />
+            <input type="checkbox" class="messageCheckbox"  value="New Zealand" /> New Zealand <br />
+            <input type="checkbox" class="messageCheckbox"  value="Nicaragua" /> Nicaragua <br />
+            <input type="checkbox" class="messageCheckbox"  value="Niger" /> Niger <br />
+            <input type="checkbox" class="messageCheckbox"  value="Nigeria" /> Nigeria <br />
+            <input type="checkbox" class="messageCheckbox"  value="North Korea" /> North Korea <br />
+            <input type="checkbox" class="messageCheckbox"  value="North Macedonia" /> North Macedonia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Norway" /> Norway <br />
+            <input type="checkbox" class="messageCheckbox"  value="Pakistan" /> Pakistan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Palau" /> Palau <br />
+            <input type="checkbox" class="messageCheckbox"  value="Panama" /> Panama <br />
+            <input type="checkbox" class="messageCheckbox"  value="Papua New Guinea" /> Papua New Guinea <br />
+            <input type="checkbox" class="messageCheckbox"  value="Paraguay" /> Paraguay <br />
+            <input type="checkbox" class="messageCheckbox"  value="Peru" /> Peru <br />
+            <input type="checkbox" class="messageCheckbox"  value="Philippines" /> Philippines <br />
+            <input type="checkbox" class="messageCheckbox"  value="Poland" /> Poland <br />
+            <input type="checkbox" class="messageCheckbox"  value="Portugal" /> Portugal <br />
+            <input type="checkbox" class="messageCheckbox"  value="Puerto Rico" /> Puerto Rico <br />
+            <input type="checkbox" class="messageCheckbox"  value="Qatar" /> Qatar <br />
+            <input type="checkbox" class="messageCheckbox"  value="Romania" /> Romania <br />
+            <input type="checkbox" class="messageCheckbox"  value="Russian Federation" /> Russian Federation <br />
+            <input type="checkbox" class="messageCheckbox"  value="Rwanda" /> Rwanda <br />
+            <input type="checkbox" class="messageCheckbox"  value="Samoa" /> Samoa <br />
+            <input type="checkbox" class="messageCheckbox"  value="San Marino" /> San Marino <br />
+            <input type="checkbox" class="messageCheckbox"  value="Sao Tome and Principe" /> Sao Tome and Principe <br />
+            <input type="checkbox" class="messageCheckbox"  value="Saudi Arabia" /> Saudi Arabia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Senegal" /> Senegal <br />
+            <input type="checkbox" class="messageCheckbox"  value="Serbia" /> Serbia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Seychelles" /> Seychelles <br />
+            <input type="checkbox" class="messageCheckbox"  value="Sierra Leone" /> Sierra Leone <br />
+            <input type="checkbox" class="messageCheckbox"  value="Singapore" /> Moldova <br />
+            <input type="checkbox" class="messageCheckbox"  value="Slovak Republic" /> Slovak Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Slovenia" /> Slovenia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Somalia" /> Somalia <br />
+            <input type="checkbox" class="messageCheckbox"  value="South Africa" /> South Africa <br />
+            <input type="checkbox" class="messageCheckbox"  value="South Korea" /> South Korea <br />
+            <input type="checkbox" class="messageCheckbox"  value="South Sudan" /> South Sudan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Spain" /> Spain <br />
+            <input type="checkbox" class="messageCheckbox"  value="Sri Lanka" /> Sri Lanka <br />
+            <input type="checkbox" class="messageCheckbox"  value="St. Kitts and Nevis" /> St. Kitts and Nevis <br />
+            <input type="checkbox" class="messageCheckbox"  value="St. Lucia" /> St. Lucia <br />
+            <input type="checkbox" class="messageCheckbox"  value="St. Vincent and the Grenadines" /> St. Vincent and the Grenadines <br />
+            <input type="checkbox" class="messageCheckbox"  value="Sudan" /> Sudan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Suriname" /> Suriname <br />
+            <input type="checkbox" class="messageCheckbox"  value="Sweden" /> Sweden <br />
+            <input type="checkbox" class="messageCheckbox"  value="Switzerland" /> Switzerland <br />
+            <input type="checkbox" class="messageCheckbox"  value="Syrian Arab Republic" /> Syrian Arab Republic <br />
+            <input type="checkbox" class="messageCheckbox"  value="Tajikistan" /> Tajikistan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Tanzania" /> Tanzania <br />
+            <input type="checkbox" class="messageCheckbox"  value="Thailand" /> Thailand <br />
+            <input type="checkbox" class="messageCheckbox"  value="Timor-Leste" /> Timor-Leste <br />
+            <input type="checkbox" class="messageCheckbox"  value="Togo" /> Togo <br />
+            <input type="checkbox" class="messageCheckbox"  value="Tonga" /> Tonga <br />
+            <input type="checkbox" class="messageCheckbox"  value="Trinidad and Tobago" /> Trinidad and Tobago <br />
+            <input type="checkbox" class="messageCheckbox"  value="Tunisia" /> Tunisia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Turkey" /> Turkey <br />
+            <input type="checkbox" class="messageCheckbox"  value="Turkmenistan" /> Turkmenistan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Turks and Caicos Islands" /> Turks and Caicos Islands <br />
+            <input type="checkbox" class="messageCheckbox"  value="Tuvalu" /> Tuvalu <br />
+            <input type="checkbox" class="messageCheckbox"  value="Uganda" /> Uganda <br />
+            <input type="checkbox" class="messageCheckbox"  value="Ukraine" /> Ukraine <br />
+            <input type="checkbox" class="messageCheckbox"  value="United Arab Emirates" /> United Arab Emirates <br />
+            <input type="checkbox" class="messageCheckbox"  value="United Kingdom" /> United Kingdom <br />
+            <input type="checkbox" class="messageCheckbox"  value="United States" /> United States <br />
+            <input type="checkbox" class="messageCheckbox"  value="Uruguay" /> Uruguay <br />
+            <input type="checkbox" class="messageCheckbox"  value="Uzbekistan" /> Uzbekistan <br />
+            <input type="checkbox" class="messageCheckbox"  value="Vanuatu" /> Vanuatu <br />
+            <input type="checkbox" class="messageCheckbox"  value="Venezuela" /> Venezuela <br />
+            <input type="checkbox" class="messageCheckbox"  value="Vietnam" /> Vietnam <br />
+            <input type="checkbox" class="messageCheckbox"  value="West Bank and Gaza" /> West Bank and Gaza <br />
+            <input type="checkbox" class="messageCheckbox"  value="World" /> Nauru <br />
+            <input type="checkbox" class="messageCheckbox"  value="West Bank and Gaza" /> West Bank and Gaza <br />
+            <input type="checkbox" class="messageCheckbox"  value="Yemen, Rep." /> Yemen, Rep. <br />
+            <input type="checkbox" class="messageCheckbox"  value="West Bank and Gaza" /> West Bank and Gaza <br />
+            <input type="checkbox" class="messageCheckbox"  value="Zambia" /> Zambia <br />
+            <input type="checkbox" class="messageCheckbox"  value="Zimbabwe" /> Zimbabwe <br />
+
+
           </div>
 
          <button type="button", onclick="getValue();return false;">Submit</button> 
@@ -51,10 +250,10 @@
           var data = [];
           var myx=[1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018]
 
-          function getValue(){
+          function getValue(callback){
             var mychecks = document.getElementsByClassName('messageCheckbox')
             var checklist = []
-            for (i = 0; i<8; i++){
+            for (i = 0; i<204; i++){
               if(mychecks[i].checked === true){
                 checklist.push(mychecks[i].value)
               }
@@ -74,19 +273,20 @@
                       name:jsondata['Name']}
                 data.push(Trace)
                 })
-              
+            
             }
+          
 
 
-
-
-          Plotly.newPlot('pie', data);
-          data=[]
-
-
+          console.log('I hope it worked')
+          setTimeout(function(){
+            Plotly.newPlot('pie',data);
+            data=[]
+          },1000)
 
           }
-         
+
+
          </script>
       </div>
     </div>
